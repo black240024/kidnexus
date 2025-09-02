@@ -1,0 +1,28 @@
+{
+  "name": "KIDNEXUS - Nurturing Creative Thinkers and Social Innovators",
+  "short_name": "KIDNEXUS",
+  "description": "Empowering children through innovative programs and child-centered learning approaches in Kenya",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F7941E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/lovable-uploads/7838d7bc-fedc-45e8-a23a-5cdf75a4b2df.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lovable-uploads/7838d7bc-fedc-45e8-a23a-5cdf75a4b2df.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "social", "kids", "innovation", "kenya"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}
