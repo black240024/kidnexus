@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: t('nav.contact'), path: '/contact', emoji: '📞' },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -39,35 +39,35 @@ const Navbar = () => {
         className={`bg-midnight-navy/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 transition-all duration-500 border-b-2 border-sunset-orange/30 ${scrolled ? 'shadow-2xl bg-midnight-navy/90' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  className="w-8 h-8 object-contain clickable"
+          <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center group">
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0], filter: 'drop-shadow(0 0 15px rgba(247, 148, 30, 0.6))' }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="relative flex-shrink-0"
+              >
+                <img 
+                  src="/lovable-uploads/7838d7bc-fedc-45e8-a23a-5cdf75a4b2df.png" 
+                  alt="KIDNEXUS Logo" 
+                  className="w-8 h-8 object-contain clickable"
+                />
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0], filter: 'drop-shadow(0 0 15px rgba(247, 148, 30, 0.6))' }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative flex-shrink-0"
+                  className="absolute -top-1 -right-1"
+                  animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <img 
-                    src="/lovable-uploads/7838d7bc-fedc-45e8-a23a-5cdf75a4b2df.png" 
-                    alt="KIDNEXUS Logo" 
-                    className="w-8 h-8 object-contain"
-                  />
-                  <motion.div
-                    className="absolute -top-1 -right-1"
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Sparkles className="h-3 w-3 text-golden-yellow" />
-                  </motion.div>
+                  <Sparkles className="h-3 w-3 text-golden-yellow" />
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="ml-2 min-w-0">
-                  <div className="text-lg font-bold bg-gradient-to-r from-sunset-orange to-magenta-pink bg-clip-text text-transparent whitespace-nowrap">
-                    KIDNEXUS
-                  </div>
-                  <motion.div animate={{ y: [0, -2, 0], rotate: [0, 3, -3, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} className="text-xs text-sky-teal font-medium whitespace-nowrap leading-none">
-                    ✨ Magic Happens
-                  </motion.div>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="ml-2 min-w-0">
+                <div className="text-lg font-bold bg-gradient-to-r from-sunset-orange to-magenta-pink bg-clip-text text-transparent whitespace-nowrap">
+                  KIDNEXUS
+                </div>
+                <motion.div animate={{ y: [0, -2, 0], rotate: [0, 3, -3, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} className="text-xs text-sky-teal font-medium whitespace-nowrap leading-none">
+                  ✨ Magic Happens
                 </motion.div>
+              </motion.div>
             </Link>
 
             <div className="hidden lg:flex items-center justify-center flex-wrap gap-2">
@@ -98,7 +98,7 @@ const Navbar = () => {
                   <img 
                     src="https://goodmarket-assets-optimized.s3.amazonaws.com/widget/gm-logo-approved-url.jpg" 
                     alt="Good Market"
-                    className="w-10 h-10 object-contain rounded-lg shadow-md"
+                    className="w-10 h-10 object-contain rounded-lg shadow-md clickable"
                   />
                 </motion.a>
               </div>
