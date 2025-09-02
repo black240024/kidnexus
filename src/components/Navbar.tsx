@@ -39,9 +39,8 @@ const Navbar = () => {
         className={`bg-midnight-navy/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 transition-all duration-500 border-b-2 border-sunset-orange/30 ${scrolled ? 'shadow-2xl bg-midnight-navy/90' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 flex-wrap gap-4 md:gap-6">
                   className="w-8 h-8 object-contain clickable"
-              <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0], filter: 'drop-shadow(0 0 15px rgba(247, 148, 30, 0.6))' }}
                   whileTap={{ scale: 0.9 }}
@@ -69,8 +68,7 @@ const Navbar = () => {
                     ✨ Magic Happens
                   </motion.div>
                 </motion.div>
-              </Link>
-            </div>
+            </Link>
 
             <div className="hidden lg:flex items-center justify-center flex-wrap gap-2">
               {navItems.map((item, index) => (
@@ -118,35 +116,35 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-midnight-navy border-t border-sunset-orange/30"
-            >
-              <div className="px-4 py-4 space-y-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isActive(item.path)
-                        ? 'text-white bg-gradient-to-r from-sunset-orange to-magenta-pink'
-                        : 'text-white hover:text-sunset-orange hover:bg-sunset-orange/10'
-                    }`}
-                  >
-                    <span className="mr-2">{item.emoji}</span> {item.name}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-midnight-navy border-t border-sunset-orange/30"
+          >
+            <div className="px-4 py-4 space-y-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    isActive(item.path)
+                      ? 'text-white bg-gradient-to-r from-sunset-orange to-magenta-pink'
+                      : 'text-white hover:text-sunset-orange hover:bg-sunset-orange/10'
+                  }`}
+                >
+                  <span className="mr-2">{item.emoji}</span> {item.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
